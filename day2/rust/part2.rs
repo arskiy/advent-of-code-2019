@@ -33,16 +33,13 @@ fn restore(x: &Vec<usize>) -> usize {
 }
 
 fn main() {
-    let mut input = fs::read_to_string("input.txt")
+    let mut input = fs::read_to_string("../input.txt")
         .expect("Error reading file");
 
-    input.pop();
-    // println!("{:?}", input);
     let input = input
+        .trim()
         .split(",")
         .collect::<Vec<_>>();
-
-    // println!("{:?}", input);
 
     let input: Vec<usize> = input.into_iter()
         .map(|s| s.parse().unwrap())

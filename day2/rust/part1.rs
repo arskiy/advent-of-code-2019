@@ -30,7 +30,7 @@ fn restore(input: &mut Vec<usize>) -> usize {
 }
 
 fn main() {
-    let mut input = fs::read_to_string("input.txt")
+    let mut input = fs::read_to_string("../input.txt")
         .expect("Error reading file");
 
     input.pop();

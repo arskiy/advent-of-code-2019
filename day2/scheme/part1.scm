@@ -18,7 +18,9 @@
 
 (define (restore-wrap l) (restore l 0))
 
-(define inp input)
-(list-set inp 1 12)
-(list-set inp 2 2)
-(display (restore-wrap inp))
+(define input (map string->number (string-split (list->string (readlines "../input.txt")) #\,)))
+
+(list-set input 1 12)
+(list-set input 2 2)
+
+(display (restore-wrap input))

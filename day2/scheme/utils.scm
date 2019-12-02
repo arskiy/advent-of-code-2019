@@ -1,6 +1,6 @@
 ; Needed on Guile
-;(use-modules (ice-9 rdelim))
-;(use-modules (srfi srfi-1))
+(use-modules (ice-9 rdelim))
+(use-modules (srfi srfi-1))
 
 (define (tokenize l s)
   (let loop ((t '())
@@ -15,7 +15,7 @@
             (list (reverse t))))))
 
 (define (string-split s x)
-  (map list->string (tokenize (string->list s x))))
+  (map list->string (tokenize (string->list s) x)))
 
 (define (readlines filename)
   (call-with-input-file filename
@@ -31,4 +31,3 @@
         (set-car! list val)
         (list-set (cdr list) (- k 1) val)))
 
-(define input (map string->number (string-split (readlines "input.txt") ',')))
