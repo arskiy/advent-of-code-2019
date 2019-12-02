@@ -1,6 +1,6 @@
 use std::fs;
 
-const FINAL: usize = 19690720;
+const TARGET: usize = 19690720;
 
 const ADD: usize = 1;
 const MULT: usize = 2;
@@ -45,13 +45,13 @@ fn main() {
         .map(|s| s.parse().unwrap())
         .collect();
 
-    // To do this, before running the program, replace position 1 with the value 12 and replace position 2 with the value 2.
+    // bruteforces in O(upper ^2)
     for noun in 0..=99 {
         for verb in 0..=99 {
             let mut copy = input.clone();
             copy[1] = noun;
             copy[2] = verb;
-            if restore(&copy) == FINAL {
+            if restore(&copy) == TARGET {
                 println!("{}", noun * 100 + verb);
             }
         }
