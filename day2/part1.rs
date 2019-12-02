@@ -1,27 +1,30 @@
 use std::fs;
 
+const ADD: usize = 1;
+const MULT: usize = 2;
+const HALT: usize = 99;
+
 // What value is left at position 0 after the program halts?
 
 fn restore(input: &mut Vec<usize>) -> usize {
-    for i in (0..input.len()).step_by(4) {
-        if input[i] == 99 {
-            // What value is left at position 0 after the program halts?
-            return input[0];
-        }
-        else if input[i] == 1 {
-            let x = input[i + 3];
-            let y = input[i + 1];
-            let z = input[i + 2];
-            input[x] = input[y] + input[z];
-        }
-        else if input[i] == 2 {
-            let x = input[i + 3];
-            let y = input[i + 1];
-            let z = input[i + 2];
-            input[x] = input[y] * input[z];
-        }
+    for pc in (0..input.len()).step_by(4) {
+        match input[pc] {
+            HALT => return input[0],
+            ADD => {
+                let x = input[pc + 3];
+                let y = input[pc + 1];
+                let z = input[pc + 2];
+                input[x] = input[y] + input[z];
+            },
 
-        println!("{:?}", input);
+            MULT => {
+                let x = input[pc + 3];
+                let y = input[pc + 1];
+                let z = input[pc + 2];
+                input[x] = input[y] * input[z];
+            }
+            _ => continue,
+        }
     }
     0
 }
