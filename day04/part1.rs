@@ -1,5 +1,5 @@
-const MIN: u32 = 356261;
-const MAX: u32 = 846303;
+const MIN: u32 = 248345;
+const MAX: u32 = 746315;
 
 fn password_check(input: u32) -> bool {
     let mut y = input;

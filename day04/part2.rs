@@ -2,6 +2,7 @@ const MIN: u32 = 356261;
 const MAX: u32 = 846303;
 
 fn password_check(input: u32) -> bool {
+
     let mut y = input;
     let mut repeat_count = 1;
     let mut prev = 10;
