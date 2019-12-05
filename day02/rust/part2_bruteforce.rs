@@ -26,7 +26,7 @@ fn restore(x: &Vec<usize>) -> usize {
                 let z = input[pc + 2];
                 input[x] = input[y] * input[z];
             }
-            _ => continue,
+            _ => panic!("Unknown opcode!"),
         }
     }
     0

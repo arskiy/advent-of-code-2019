@@ -25,7 +25,7 @@ fn restore(x: &Vec<i32>) -> i32 {
                 let z = input[pc + 2] as usize;
                 input[x] = input[y] * input[z];
             }
-            _ => continue,
+            _ => panic!("Unknown opcode!"),
         }
     }
     0

@@ -4,8 +4,6 @@ const ADD: usize = 1;
 const MULT: usize = 2;
 const HALT: usize = 99;
 
-// What value is left at position 0 after the program halts?
-
 fn restore(input: &mut Vec<usize>) -> usize {
     for pc in (0..input.len()).step_by(4) {
         match input[pc] {
@@ -23,7 +21,7 @@ fn restore(input: &mut Vec<usize>) -> usize {
                 let z = input[pc + 2];
                 input[x] = input[y] * input[z];
             }
-            _ => continue,
+            _ => panic!("Unknown opcode!"),
         }
     }
     0
@@ -33,13 +31,10 @@ fn main() {
     let mut input = fs::read_to_string("../input.txt")
         .expect("Error reading file");
 
-    input.pop();
-    // println!("{:?}", input);
     let input = input
+        .trim()
         .split(",")
         .collect::<Vec<_>>();
-
-    // println!("{:?}", input);
 
     let mut input: Vec<usize> = input.into_iter()
         .map(|s| s.parse().unwrap())
