@@ -71,12 +71,6 @@ fn intcode(input: &mut Vec<i32>) -> i32 {
             STDOUT => {
                 let x = input[pc + 1] as usize;
 
-                if input[x] == 27960 {
-                    println!("{}", input[pc - 3]);
-                    println!("{}", input[pc - 2]);
-                    println!("{}", input[pc - 1]);
-                }
-
                 if first == 1 {
                     println!("The Intcode computer spoke: {}", x);
                 } else {
