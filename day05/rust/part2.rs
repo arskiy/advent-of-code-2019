@@ -1,6 +1,8 @@
 use std::fs;
 use std::io;
 
+static INPUT: &'static str = include_str!(r"input.txt");
+
 const OP_ADD: i32 = 1;
 const OP_MULT: i32 = 2;
 const OP_STDIN: i32 = 3;
@@ -111,10 +113,7 @@ impl IntcodeVM {
 }
 
 fn main() {
-    let input = fs::read_to_string("../input.txt")
-        .expect("Error reading file");
-
-    let input: Vec<i32> = input
+    let input: Vec<i32> = INPUT
         .trim()
         .split(',')
         .map(|x| x.parse().unwrap())
